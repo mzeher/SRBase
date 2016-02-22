@@ -6,7 +6,7 @@ four51.app.directive('quantityfield', ['$451', 'ProductDisplayService', function
             required: '='
         },
         restrict: 'E',
-        templateURL: 'partials/controls/quantityfield.html',
+        templateUrl: 'partials/controls/quantityfield.html',
         link: function(scope){
             scope.getRestrictedQtyText = function(priceBreak, qtyMultiplier){
                 var qtyText = priceBreak.Quantity * qtyMultiplier;
