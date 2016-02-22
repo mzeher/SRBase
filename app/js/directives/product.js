@@ -141,3 +141,31 @@ four51.app.directive("variantlist", function() {
 	};
 	return obj;
 });
+
+four51.app.directive('productviewforlist', function() {
+    var obj = {
+        restrict: "E",
+        scope: {
+            p: '=',
+            user: '='
+        },
+        templateUrl:'partials/controls/productViewForList.html',
+        controller: 'shortProductViewCtrl'
+    };
+
+    return obj;
+});
+four51.app.directive('productlistaddtocart', function() {
+    var obj = {
+        restrict: "E",
+        scope: {
+            p: '=',
+            user: '=',
+            LineItem : '=lineitem',
+        },
+        templateUrl:'partials/controls/productListAddToCartView.html',
+        controller: 'ProductListAddToCartCtrl'
+    };
+
+    return obj;
+});

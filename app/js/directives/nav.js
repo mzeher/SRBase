@@ -27,3 +27,12 @@ four51.app.directive('backStep', function(){
         }
     };
 });
+
+four51.app.directive('slideoutnav', function() {
+    var obj = {
+        restrict: 'E',
+        templateUrl: 'partials/controls/slideout-nav.html',
+        controller: 'SlideOutNavCtrl'
+    };
+    return obj;
+});

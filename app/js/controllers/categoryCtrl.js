@@ -52,4 +52,14 @@ function ($routeParams, $sce, $scope, $451, Category, Product, Nav) {
 			$scope.sorter = s.replace(' DESC', "");
 		$scope.direction = s.indexOf('DESC') > -1;
 	});
+
+	$scope.StartProductNum = function(){
+		return (($scope.settings.currentPage-1)*$scope.settings.pageSize)+1;
+	}
+
+	$scope.EndProductNum = function(){
+		var c = (($scope.settings.currentPage)*$scope.settings.pageSize)+1;
+		if ($scope.productCount < c) c = $scope.productCount;
+		return c;
+	}
 }]);

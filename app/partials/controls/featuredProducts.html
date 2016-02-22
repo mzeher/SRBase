@@ -1,0 +1,25 @@
+<h2>New Products</h2>
+<div class="row">
+    <div class="col-md-3" ng-repeat="FeaturedProduct in featProducts">
+        <div class="col-xs-12 text-center productlistimage">
+            <a class="thumbnail" href="product/{{FeaturedProduct.InteropID}}">
+                <figure ng-show="FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl" >
+                    <img ng-src="{{FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl}}"/>
+                </figure>
+                <div class="empty" ng-hide="FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl">
+                    <span class="fa empty"><i class="fa fa-camera"></i></span>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-12 text-left">
+            <div class="panel-body">
+                <h4 class="text-center">{{FeaturedProduct.Name}}</h4>
+                <p ng-show="FeaturedProduct.StandardPriceSchedule.PriceBreaks[0]" ng-if="!(user.Permissions.contains('HidePricing'))">
+                    <span class="productlistprice">{{FeaturedProduct.StandardPriceSchedule.PriceBreaks[0].Price | culturecurrency}}</span>
+                    <span class="productlistuom" ng-if="(FeaturedProduct.StandardPriceSchedule.QuantityMultiplier > 0)">{{FeaturedProduct.StandardPriceSchedule.QuantityMultiplier}}/EA</span>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

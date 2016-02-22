@@ -1,11 +1,76 @@
-<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
+<section class="" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
     <div class="container">
-        <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
-            <a ng-click="refreshUser()" href="catalog">
-                <img ng-src="{{user.Company.LogoUrl}}" />
-            </a>
-            <span>{{user.Company.Name}}</span>
-            <homemessage />
-        </h2>
+        <div ng-show="Four51User.isAuthenticated()">
+            <ul class="list-inline pull-left">
+                <li><a class="thumbnail" ng-click="refreshUser()" href="home">
+                    <img ng-src="{{user.Company.LogoUrl}}" />
+                </a></li>
+                <li class="companytitle"><h2><span>{{user.Company.Name}}</span></h2></li>
+                <li><homemessage /></li>
+            </ul>
+            <ul class="list-inline pull-right">
+                <li><a href="search">
+                    <span><i class="fa fa-search text-primary"></i></span>
+                </a></li>
+                <li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
+                    <a id="451qa_cart_link" ng-show="cartCount && user.CurrentOrderID" class="cart" href="cart">
+                        <span ng-bind="cartCount" class="badge"></span>
+                        <i class="fa fa-shopping-cart"></i>
+                        <!--<i class="fa fa-caret-down"></i>-->
+                    </a>
+                </li>
+                <li class="dropdown admin-user" >
+                    <a id="451qa_acct_link2" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="hidden-xs"><span>{{user.FirstName}} {{user.LastName}}</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li id="451qa_user_link" ng-show="user.Permissions.contains('ViewSelfAdmin')" class="admin">
+                            <a href="admin">
+                                {{'User Information' | r | xlat}}
+                            </a>
+                        </li>
+                        <li id="451qa_addy_link" ng-show="user.Type == 'Customer' && (user.Permissions.contains('CreateShipToAddress') || user.Permissions.contains('CreateBillToAddress'))" class="addresses">
+                            <a href="addresses">
+                                {{'Addresses' | r | xlat}}
+                            </a>
+                        </li>
+                        <li id="451qa_mesg_link" ng-show="user.Type == 'Customer' && user.Permissions.contains('ViewMessaging')" class="messages">
+                            <a href="message">
+                                {{'Messages' | r | xlat}}
+                            </a>
+                        </li>
+                        <li class="favorites" ng-show="user.Type == 'Customer'">
+                            <a id="451qa_fave_link" href="favoriteorders">
+                                {{'Favorites' | r | xlat}}
+                            </a>
+                        </li>
+                        <li id="451qa_mesg_link" ng-show="user.Permissions.contains('ViewContactUs')" class="contactus">
+                            <a href="contactus">
+                                {{'Contact Us' | r | xlat}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" neworder ng-if="user.Permissions.contains('MultipleShoppingCart') && currentOrder" class="neworder" ng-click="newOrderLoadingIndicator = true;startNewOrder()">
+                                {{"Start" | r | xlat}} {{"New" | r | xlat}} {{"Order" | r | xlat}}
+                            </a>
+                        </li>
+                        <li class="divider" ng-show="user.Type!='TempCustomer' || AppConst.debug"></li>
+                        <li ng-show="user.Type!='TempCustomer'" class="logout">
+                            <a href="#"  class="451_btn_logout" ng-click="Logout()">
+                                <i class="fa fa-power-off text-danger"></i>
+                                <span>{{'Log Out' | r | xlat}}</span>
+                            </a>
+                        </li>
+                        <li ng-if="AppConst.debug">
+                            <a href="#" ng-click="Clear()">
+                                <i class="fa fa-archive"></i>
+                                <span class="text-nav">Clear Cache</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
