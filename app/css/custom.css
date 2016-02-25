@@ -136,8 +136,19 @@ h2.categorytitle{
     height:auto;
 }
 
+.slideout-nav ul {
+    font-size: 24px;
+    font-weight: bold;
+}
+.slideout-nav ul a {
+    color:#4C4EA2;
+}
 .slideout-nav ul ul {
     margin-left: 15px;
+}
+.slideout-nav ul ul a {
+    font-size: 14px;
+    color:#807996;
 }
 .slideout-nav ul ul ul {
 
@@ -168,21 +179,37 @@ h2.categorytitle{
     color: #EBEEF0;
 }
 div.productlistoverlaydiv{
-    position: relative;
-    top: -250px;
-    border: 3px solid #73AD21;
+    position: absolute;
+    min-width: 250px;
+//border: 3px solid #1A4EA2;
     min-height:250px;
-    background-color: #A6A6A7;
-    opacity:0.4;
+    background-color: #EBEEF0;
+    /*opacity:0.4;*/
     z-index: 3;
 }
-div.qtyup, div.qtydown{
-    background-color: #1A4EA2;
-    color: #A6A6A7;
-    min-height:15px;
+div.productlistoverlayinnerdiv{
+    position: absolute;
+    width: 250px;
+//opacity:1;
+    z-index: 10;
+}
+.view-form-icon .quantity div.qtyup, .view-form-icon .quantity div.qtydown  {
+    background-color: #133B6B;
+    color: #FFFFF4;
+    min-height:18px;
     min-width:15px;
+    width: 30px;
     position:relative;
     z-index: 4;
+    margin-top: -35px;
+//right:30px;
+    margin-left: 100px;
+}
+.view-form-icon .quantity div.qtydown  {
+    margin-top: 0px;
+}
+.quantity div{
+    width:100px;
 }
 .productlistimage{
     min-height:150px;
@@ -192,4 +219,36 @@ div.qtyup, div.qtydown{
 }
 .landingCatalogTitle{
     text-align: center;
+}
+.view-form-icon .quantity div input  {
+    height: 20px;
+}
+.view-form-icon .qtyup i, .view-form-icon .qtydown i {
+    top: 0px;
+
+}
+input:not([type="checkbox"]), textarea, select, button {
+    min-height: 34px;
+}
+.atobutton{
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+.addtocartbutton{
+    background-color: #1A4EA2;
+    color: #FFFFF4;
+}
+.addtocartbutton:hover, .addtocartbutton:focus{
+    color: #FFFFF4;
+    text-decoration: none;
+}
+.panel{
+    border: 0px;
 }
