@@ -8,6 +8,9 @@ four51.app.directive('quantityfield', ['$451', 'ProductDisplayService', function
         restrict: 'E',
         templateUrl: 'partials/controls/quantityfield.html',
         link: function(scope){
+            scope.incqty = function(lineitem){
+                lineitem.Quantity = lineitem.Quantity*1 + 1;
+            }
             scope.getRestrictedQtyText = function(priceBreak, qtyMultiplier){
                 var qtyText = priceBreak.Quantity * qtyMultiplier;
                 if(qtyMultiplier > 1)
@@ -20,7 +23,7 @@ four51.app.directive('quantityfield', ['$451', 'ProductDisplayService', function
                     scope.calculated(lineitem);
             };
             scope.validQuantityAddToOrder = function(value, lineItem){
-				if (!value) return;
+                if (!value) return;
                 var variant = lineItem.Variant;
                 var product = lineItem.Product;
                 var priceSchedule = lineItem.PriceSchedule;

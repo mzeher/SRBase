@@ -245,7 +245,7 @@ input:not([type="checkbox"]), textarea, select, button {
     background-color: #1A4EA2;
     color: #FFFFF4;
 }
-.addtocartbutton:hover, .addtocartbutton:focus{
+.addtocartbutton:hover, .focaddtocartbutton{
     color: #FFFFF4;
     text-decoration: none;
 }

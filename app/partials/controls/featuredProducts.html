@@ -3,10 +3,10 @@
     <div class="col-md-3" ng-repeat="FeaturedProduct in featProducts">
         <div class="col-xs-12 text-center productlistimage">
             <a class="thumbnail" href="product/{{FeaturedProduct.InteropID}}">
-                <figure ng-show="FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl" >
-                    <img ng-src="{{FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl}}"/>
+                <figure ng-show="FeaturedProduct.Variant.LargeImageUrl || FeaturedProduct.LargeImageUrl" >
+                    <img class="img-responsive" ng-src="{{FeaturedProduct.Variant.LargeImageUrl || FeaturedProduct.LargeImageUrl}}" style="max-width:175px;max-height:125px"/>
                 </figure>
-                <div class="empty" ng-hide="FeaturedProduct.Variant.SmallImageUrl || FeaturedProduct.SmallImageUrl">
+                <div class="empty" ng-hide="FeaturedProduct.Variant.LargeImageUrl || FeaturedProduct.LargeImageUrl">
                     <span class="fa empty"><i class="fa fa-camera"></i></span>
                 </div>
             </a>

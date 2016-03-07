@@ -1,5 +1,5 @@
 <div style="position: relative; width: 0; height: 0">
-    <div id="overlay-{{$index}}" class="productlistoverlaydiv" ng-show="LineItem.overlayon" ng-mouseleave="LineItem.overlayon=false;">
+    <div id="overlay-{{$index}}" class="productlistoverlaydiv" ng-show="LineItem.overpopup || LineItem.overitem" ng-mouseenter="LineItem.overpopup=true;" ng-mouseleave="LineItem.overpopup=false;">
         <div style="margin-top: 25%;" ng-show="!LineItem.Variant">
             <div class="row" style="width:40%; margin: auto;">
                 <a  href="product/{{LineItem.Product.InteropID}}" class="atobutton">
@@ -17,11 +17,11 @@
         </div>
     </div>
 </div>
-<div class="451qa_prod_item productlistviewproduct" ng-mouseenter="LineItem.overlayon=true;" >
+<div class="451qa_prod_item productlistviewproduct" ng-mouseenter="LineItem.overitem=true;" ng-mouseleave="LineItem.overitem=false;">
     <div class="col-xs-12 text-center productlistimage">
         <a class="thumbnail" href="product/{{LineItem.Product.InteropID}}">
-            <figure ng-show="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl" >
-                <img ng-src="{{LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl}}"/>
+            <figure ng-show="LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl" >
+                <img ng-src="{{LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl}}" style="max-width:175px;max-height:125px;"/>
             </figure>
             <div class="empty" ng-hide="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl">
                 <span class="fa empty"><i class="fa fa-camera"></i></span>
