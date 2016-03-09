@@ -2,7 +2,7 @@
 Changes to the base app css should go here, overrides to at the app level should go in the custom.css
 */
 body{
-    background-color: #ffffff;
+    background-color: #fff;
 }
 .navbar{
     position: relative;
