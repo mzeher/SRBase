@@ -9,7 +9,19 @@ four51.app.directive('quantityfield', ['$451', 'ProductDisplayService', function
         templateUrl: 'partials/controls/quantityfield.html',
         link: function(scope){
             scope.incqty = function(lineitem){
+                if (lineitem.Quantity == NaN || lineitem.Quantity == undefined)
+                {
+                    lineitem.Quantity = 0;
+                }
                 lineitem.Quantity = lineitem.Quantity*1 + 1;
+            }
+            scope.decqty = function(lineitem){
+                if (lineitem.Quantity == NaN || lineitem.Quantity == undefined)
+                {
+                    lineitem.Quantity = 0;
+                }
+                if (lineitem.Quantity > 0)
+                    lineitem.Quantity = lineitem.Quantity*1 - 1;
             }
             scope.getRestrictedQtyText = function(priceBreak, qtyMultiplier){
                 var qtyText = priceBreak.Quantity * qtyMultiplier;

@@ -2,7 +2,7 @@
 Changes to the base app css should go here, overrides to at the app level should go in the custom.css
 */
 body{
-    background-color: #fff;
+    background-color: #ffffff;
 }
 .navbar{
     position: relative;
@@ -175,14 +175,25 @@ h2.categorytitle{
 .productlistuom{
     color: #EBEEF0;
 }
-div.productlistoverlaydiv{
+
+.productlistoverlaydiv{
     position: absolute;
     min-width: 250px;
 //border: 3px solid #1A4EA2;
     min-height:250px;
-    background-color: #EBEEF0;
-    /*opacity:0.4;*/
+    width:100%;
+//background-color: #EBEEF0;
+//opacity:0.4;
     z-index: 3;
+}
+.productlistoverlayback{
+    position: absolute;
+    min-width: 250px;
+    min-height:250px;
+    width: 100%;
+    background-color: #EBEEF0;
+    opacity:0.7;
+    z-index: 2;
 }
 div.productlistoverlayinnerdiv{
     position: absolute;
@@ -249,7 +260,13 @@ input:not([type="checkbox"]), textarea, select, button {
 .panel{
     border: 0px;
 }
-
+.view-form-icon .quantity div input {
+    padding: 0 0;
+    padding-top: 0em;
+    padding-right: 0px;
+    padding-bottom: 0em;
+    padding-left: 0px;
+}
 .minicart { padding: 15px 15px 15px 0; float: right; cursor: pointer;color: #000000; min-width:300px; text-align:right;}
 @media (max-width: 768px) {.minicart { min-width:auto; } }
 .text-muted {color: #000000;}

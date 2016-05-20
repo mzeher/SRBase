@@ -1,59 +1,46 @@
-<div style="position: relative; width: 0; height: 0">
+
+<div class="451qa_prod_item productlistviewproduct" ng-mouseenter="LineItem.overitem=true;" ng-mouseleave="LineItem.overitem=false;"
+     style="position: relative;">
+    <div style="position: absolute; width:100%;">
+        <div class="col-xs-12 text-center productlistimage">
+            <a class="thumbnail" href="product/{{LineItem.Product.InteropID}}">
+                <figure ng-show="LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl" >
+                    <img ng-src="{{LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl}}" style="max-width:175px;max-height:125px;"/>
+                </figure>
+                <div class="empty" ng-hide="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl">
+                    <span class="fa empty"><i class="fa fa-camera"></i></span>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-12 text-left">
+            <div class="panel-body">
+                <h4 class="text-center">{{LineItem.Product.Name}}</h4>
+                <p ng-show="LineItem.PriceSchedule.PriceBreaks[0]" ng-if="!(user.Permissions.contains('HidePricing'))">
+                    <span class="productlistprice">{{LineItem.PriceSchedule.PriceBreaks[0].Price | culturecurrency}}</span>
+                    <span class="productlistuom" ng-if="(LineItem.PriceSchedule.QuantityMultiplier > 0)">{{LineItem.PriceSchedule.QuantityMultiplier}}/EA</span>
+
+                </p>
+            </div>
+        </div>
+    </div>
     <div id="overlay-{{$index}}" class="productlistoverlaydiv" ng-show="LineItem.overpopup || LineItem.overitem" ng-mouseenter="LineItem.overpopup=true;" ng-mouseleave="LineItem.overpopup=false;">
-        <div style="margin-top: 25%;" ng-show="!LineItem.Variant">
+        <div style="margin-top: 65px;" ng-show="!LineItem.Variant">
             <div class="row" style="width:40%; margin: auto;">
-                <a  href="product/{{LineItem.Product.InteropID}}" class="atobutton">
+                <a  href="product/{{LineItem.Product.InteropID}}" class="atobutton btn btn-default btn-block">
                     View Details
                 </a>
             </div>
             <productlistaddtocart LineItem="LineItem" p="p" user="user"/>
         </div>
-        <div style="margin-top: 35%;" ng-show="LineItem.Variant">
+        <div style="margin-top: 90px;" ng-show="LineItem.Variant">
             <div class="row" style="width:40%; margin: auto;">
-                <a  href="product/{{LineItem.Product.InteropID}}" class="atobutton">
+                <a  href="product/{{LineItem.Product.InteropID}}" class="atobutton btn btn-default btn-block">
                     Customize This Product
                 </a>
             </div>
         </div>
     </div>
-</div>
-<div class="451qa_prod_item productlistviewproduct" ng-mouseenter="LineItem.overitem=true;" ng-mouseleave="LineItem.overitem=false;">
-    <div class="col-xs-12 text-center productlistimage">
-        <a class="thumbnail" href="product/{{LineItem.Product.InteropID}}">
-            <figure ng-show="LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl" >
-                <img ng-src="{{LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl}}" style="max-width:175px;max-height:125px;"/>
-            </figure>
-            <div class="empty" ng-hide="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl">
-                <span class="fa empty"><i class="fa fa-camera"></i></span>
-            </div>
-        </a>
-    </div>
-    <div class="col-xs-12 text-left">
-        <div class="panel-body">
-            <h4 class="text-center">{{LineItem.Product.Name}}</h4>
-            <p ng-show="LineItem.PriceSchedule.PriceBreaks[0]" ng-if="!(user.Permissions.contains('HidePricing'))">
-                <span class="productlistprice">{{LineItem.PriceSchedule.PriceBreaks[0].Price | culturecurrency}}</span>
-                <span class="productlistuom" ng-if="(LineItem.PriceSchedule.QuantityMultiplier > 0)">{{LineItem.PriceSchedule.QuantityMultiplier}}/EA</span>
+    <div class="productlistoverlayback" ng-show="LineItem.overpopup || LineItem.overitem" ng-mouseenter="LineItem.overpopup=true;" ng-mouseleave="LineItem.overpopup=false;">
 
-            </p>
-            <!--<div class="panel-footer">
-                <div>
-                    <p ng-bind-html="trustedDescription(LineItem.Product)" ng-show="LineItem.Product.Description" />
-                    <p ng-show="LineItem.PriceSchedule.PriceBreaks[0]" ng-if="!(user.Permissions.contains('HidePricing'))">
-                        {{LineItem.PriceSchedule.PriceBreaks[0].Quantity}}
-                        <span ng-show="LineItem.Product.QuantityMultiplier > 1">(x {{LineItem.Product.QuantityMultiplier}})</span>
-                        {{'for' | xlat}} {{LineItem.PriceSchedule.PriceBreaks[0].Price | culturecurrency}}
-                    </p>
-                    <p ng-show="LineItem.Product.UnitOfMeasure">
-                        {{'Unit of Measure' | r | xlat}}: {{LineItem.Product.UnitOfMeasure}}
-                    </p>
-
-                    <p ng-show="LineItem.Product.DisplayInventory && inventoryDisplay(LineItem.Product, LineItem.Variant) != undefined">
-                        {{'Quantity Available' | r | xlat}}: {{inventoryDisplay(LineItem.Product, LineItem.Variant) }}
-                    </p>
-                </div>
-                <a class="btn btn-default btn-block" href="product/{{LineItem.Product.InteropID}}">{{('View' | r) + ' ' + ('Product' | r) | xlat}}</a>
-            </div>-->
-        </div>
     </div>
 </div>
